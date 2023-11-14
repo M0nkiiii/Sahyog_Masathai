@@ -1,0 +1,40 @@
+What is the result of 15−8?, 7
+If a shirt costs $25 and is on sale for 20% off, what is the discounted price?, 20
+Solve for y in the equation 2+10=18, 4
+If a box contains 24 chocolates and you take 3 out, how many chocolates are left?, 21
+Calculate the area of a square with a side length of 6 units., 36
+What is the value of 4*9, 36
+If a train travels at 80 km/h for 2.5 hours, how far does it travel?, 200
+Solve the expression 3(2x - 5) = 21 for x, 4
+What is the sum of the first 10 positive integers?, 55
+If a recipe calls for 2/3 cup of sugar and you want to make half the recipe, how much sugar do you need?, 1
+Express 0.75 as a fraction in simplest form., 3/4
+Calculate the perimeter of a rectangle with length 12 units and width 8 units., 40
+If a clock shows 15:45 PM and you add 2 hours and 30 minutes, what time will it be?, 18:15
+Solve for x in the equation 5x−3=22, 5
+If a pizza is divided into 8 slices and you eat 3 slices, what fraction of the pizza have you eaten?, 3/8
+Calculate the volume of a cube with side length 4 units., 64
+If a marathon is 26.2 miles long, how many kilometers is that? (1 mile = 1.60934 km), 42.195
+Solve the equation 2a+7=15 for a., 4
+If a classroom has 30 students and the teacher wants to distribute 120 pencils equally, how many pencils does each student receive?, 4
+A company produces 500 units of a product every day. If they operate for 5 days in a week, how many units do they produce in a week?, 2500
+What is the result of 12×5?, 60
+If a book originally costs $40 and is marked down by 30%, what is the final price?, 28
+Solve for z in the equation 4z+6=22., 4
+You have a jar with 36 marbles. If you take out 5 marbles, how many marbles are left?, 31
+Find the area of a triangle with base 8 units and height 5 units., 20
+If a plane flies at a speed of 500 miles per hour for 4 hours, how far does it travel?, 2000
+Solve the equation 2y−9=15 for y., 12
+Determine the product of the first 6 prime numbers., 30030
+If a recipe calls for 1/2 cup of oil and you want to make it for 3 people, how much oil do you need?, 1.5
+Express 0.6 as a fraction in simplest form., 3/5
+Calculate the perimeter of a right-angled triangle with sides 9, 12, and 15 units., 36
+If it's 11:30 AM now, what time will it be in 3 hours and 45 minutes?, 3:15
+Solve for m in the equation 2m+8=18., 5
+If a cake is divided into 10 slices and you eat 2 slices, what fraction of the cake have you eaten?, 1/5
+A company produces 800 units of a product every day. If they operate for 6 days in a week, how many units do they produce in a week?, 4800
+If a garden has 40 flowers and you want to plant them in rows of 8, how many rows will there be?, 5
+Solve the equation 3b−2=13 for b., 5
+If a journey is 150 kilometers long, how many miles is that? (1 kilometer = 0.621371 miles), 93
+If a box contains 15 red balls, 20 blue balls, and 10 green balls, what is the total number of balls in the box?, 45
+Solve for x in the equation 2x+3=11., 4

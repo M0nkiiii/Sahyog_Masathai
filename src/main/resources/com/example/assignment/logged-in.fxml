@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d0ccd0;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment.controller.LoggedinController">
+   <children>
+      <ImageView fitHeight="87.0" fitWidth="81.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="172.0" layoutY="41.0" text="User Dashboard" textFill="#2a2b2a">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_welcome" alignment="CENTER" layoutX="182.0" layoutY="101.0" prefHeight="22.0" prefWidth="246.0" text="Welcome!!">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_takeexam" onAction="#handletakeexambtn" layoutX="249.0" layoutY="248.0" mnemonicParsing="false" text="Take Exam">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_profile" onAction="#handleProfileButton" layoutX="265.0" layoutY="186.0" mnemonicParsing="false" text="Profile">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,15 @@
+123,20,9,11,45,Pass
+Aryan,20,12,8,60,Pass
+111,20,14,6,70,Pass
+Aryan,20,10,10,50,Pass
+123,20,13,7,65,Pass
+123,20,11,9,55,Pass
+123,20,12,8,60,Pass
+Aryan,20,8,12,40,Pass
+aayush,20,9,11,45,Pass
+Pops,20,11,9,55,Pass
+Pops,20,1,19,5,Fail
+banana,20,10,10,50,Pass
+yeet,20,5,15,25,Pass
+Aryan,20,12,8,60,Pass
+banana,20,14,6,70,Pass

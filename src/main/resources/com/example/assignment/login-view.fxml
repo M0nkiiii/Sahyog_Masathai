@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment.controller.LoginController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2a2b2a;">
+         <children>
+            <ImageView fitHeight="218.0" fitWidth="200.0" layoutY="66.0" pickOnBounds="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="400.0" prefWidth="402.0" style="-fx-background-color: #d0ccd0;">
+         <children>
+            <Label layoutX="53.0" layoutY="128.0" prefHeight="42.0" prefWidth="108.0" text="Email">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="179.0" prefHeight="42.0" prefWidth="108.0" text="Password">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="user_email" layoutX="173.0" layoutY="132.0" prefHeight="34.0" prefWidth="184.0">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="userPassword" layoutX="173.0" layoutY="188.0" prefHeight="34.0" prefWidth="184.0">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="btn_login" layoutX="173.0" layoutY="254.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #2a2b2a;" text="Login" textFill="#fff9f9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="resultLabel" layoutX="148.0" layoutY="87.0" prefHeight="18.0" prefWidth="98.0" />
+            <Label layoutX="126.0" layoutY="326.0" text="Create Account">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="btn_toRegister" layoutX="223.0" layoutY="322.0" mnemonicParsing="false" onAction="#toRegister" style="-fx-background-color: #d0ccd0; -fx-cursor: hand;" text="Signup" textFill="#344bc9" underline="true">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

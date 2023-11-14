@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d0ccd0;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment.controller.ExamController">
+   <children>
+      <ImageView fitHeight="103.0" fitWidth="103.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label_question" alignment="CENTER" layoutX="4.0" layoutY="193.0" prefHeight="58.0" prefWidth="592.0" text="What is your name?">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_answer1" layoutX="57.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleAnswerButton" prefHeight="43.0" prefWidth="140.0" text="Aryan">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_answer2" layoutX="397.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleAnswerButton" prefHeight="43.0" prefWidth="140.0" text="Not Aryan">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="label_name" layoutX="300.0" layoutY="72.0" prefHeight="18.0" prefWidth="279.0">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_gender" layoutX="274.0" layoutY="63.0" prefHeight="18.0" prefWidth="123.0" text="">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_nation" layoutX="274.0" layoutY="116.0" prefHeight="18.0" prefWidth="123.0" text="">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_back" layoutX="41.0" layoutY="343.0" mnemonicParsing="false" style="-fx-background-color: #d0ccd0;" />
+      <Label fx:id="label_timer" layoutX="478.0" layoutY="64.0">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="248.0" layoutY="166.0" text="Questions">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_email" layoutX="300.0" layoutY="108.0" prefHeight="18.0" prefWidth="279.0">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="218.0" layoutY="72.0" prefHeight="20.0" prefWidth="60.0" text="Name:">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="218.0" layoutY="106.0" prefHeight="20.0" prefWidth="60.0" text="Email:">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
