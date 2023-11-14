@@ -56,11 +56,11 @@ public class ResultController {
         initialize(name, loggedInUserGender, loggedInUserNation);
 //        label_name.setText(" " + name);
 
-        if(correctAnswersCount<=10){
-            label_result.setText("Result: " + correctAnswersCount + " out of " + totalQuestions + " correct. You have failed successfully.");
+        if(correctAnswersCount>=10){
+            label_result.setText("Result: " + correctAnswersCount + " out of " + totalQuestions + " correct. You have passed successfully.");
         }
         else{
-            label_result.setText("Result: " + correctAnswersCount + " out of " + totalQuestions + " correct. You have passed successfully.");
+            label_result.setText("Result: " + correctAnswersCount + " out of " + totalQuestions + " correct. You have failed successfully.");
         }
 //        label_result.setText("Result: " + correctAnswersCount + " out of " + totalQuestions + " correct");
         label_statistics.setText("Statistics:\nMean: " + mean + "\nMode: " + mode + "\nMedian: " + median );

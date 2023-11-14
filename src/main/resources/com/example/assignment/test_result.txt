@@ -13,3 +13,14 @@ banana,20,10,10,50,Pass
 yeet,20,5,15,25,Pass
 Aryan,20,12,8,60,Pass
 banana,20,14,6,70,Pass
+123,20,3,17,15,Pass
+Aryan,20,5,15,25,Pass
+Aryan,20,5,15,25,Pass
+123,20,8,12,40,Pass
+Aryan,20,5,15,25,Fail
+Aryan,20,12,8,60,Fail
+Aryan,20,10,10,50,Fail
+banana,20,10,10,50,Pass
+123,20,6,14,30,Fail
+123,20,20,0,100,Pass
+apple,20,8,12,40,Fail

@@ -110,7 +110,7 @@ public class ExamController {
     }
 
     private void loadQuestionsFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\nepac\\OneDrive\\Documents\\College IIMS\\SEM 5\\Advance Programming\\kill me\\Assignment\\src\\main\\resources\\com\\example\\assignment\\question_list.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\com\\example\\assignment\\question_list.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -186,7 +186,7 @@ public class ExamController {
         // Format: Name,TotalQuestions,CorrectAnswers,IncorrectAnswers,Marks
         // Example: John Doe,10,7,3,70
 
-        String resultFileName = "C:\\Users\\nepac\\OneDrive\\Documents\\College IIMS\\SEM 5\\Advance Programming\\test kill\\Assignment\\src\\main\\resources\\com\\example\\assignment\\test_result.txt";
+        String resultFileName = "src\\main\\resources\\com\\example\\assignment\\test_result.txt";
 
         try (FileWriter writer = new FileWriter(resultFileName, true);
              BufferedWriter bw = new BufferedWriter(writer);
@@ -197,8 +197,8 @@ public class ExamController {
 //            String passFail = (marks > 10) ? "Pass" : "Fail";
 //
 //            out.println(loggedInUserName + "," + totalQuestions + "," + correctAnswersCount + "," + incorrectAnswersCount + "," + marks + "," + passFail);
-
-            if(marks>= 10)
+            System.out.println("Marks: " + marks);
+            if(marks >= 50)
             {
                 out.println(loggedInUserName + "," + totalQuestions + "," + correctAnswersCount + "," + incorrectAnswersCount + "," + marks + ",Pass");
             }

@@ -14,10 +14,10 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.stage  = stage;
-        //loginScene();
+        loginScene();
 
 
-        registerScene();
+        //registerScene();
     }
 
     public void loginScene() throws IOException {
