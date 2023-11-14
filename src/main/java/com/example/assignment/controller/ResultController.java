@@ -1,11 +1,13 @@
 package com.example.assignment.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class ResultController {
 
@@ -18,14 +20,62 @@ public class ResultController {
     @FXML
     private Label label_statistics;
 
+    @FXML
+    private ComboBox<String> comboBoxNames;  // Add ComboBox
+
     private String loggedInUserName;
     private String loggedInUserGender;
     private String loggedInUserNation;
 
+    private static final String RESULT_PATH = "src/main/resources/com/example/assignment/test_result.txt";
+
+    private ExamController examController; // Reference to ExamController
+
+    public void setExamController(ExamController examController) {
+        this.examController = examController;
+    }
+
+    @FXML
+    public void initialize() {
+        // Populate ComboBox with unique names from test_result.txt
+        List<String> names = readUniqueNamesFromResultFile();
+        comboBoxNames.getItems().addAll(names);
+
+        // Automatically display the result for the logged-in user
+        if (examController != null) {
+            displayResultsForUser(examController.getLoggedInUserName());
+        }
+    }
+
+    private List<String> readUniqueNamesFromResultFile() {
+        Set<String> uniqueNames = new HashSet<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(RESULT_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 5) {
+                    String name = parts[0];
+                    uniqueNames.add(name.trim());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<>(uniqueNames);
+    }
+
+    @FXML
+    private void handleNameSelection() {
+        String selectedName = comboBoxNames.getValue();
+        if (selectedName != null) {
+            // Load and display results for the selected name
+            displayResultsForUser(selectedName);
+        }
+    }
+
     public void setLoggedInUserName(String loggedInUserName) {
         this.loggedInUserName = loggedInUserName;
-        // Set the label or perform any other actions you need with the username
-        label_userName.setText(loggedInUserName);  // Assuming you have a label named label_userName
+        label_userName.setText(loggedInUserName);
     }
 
     public void setLoggedInUserGender(String gender) {
@@ -36,35 +86,24 @@ public class ResultController {
         this.loggedInUserNation = nation;
     }
 
-    @FXML
-    public void initialize(String name, String gender, String nation) {
-        setLoggedInUserName(name);
-        setLoggedInUserGender(gender);
-        setLoggedInUserNation(nation);
-
-        // Other initialization code
-        //label_name.setText(" " + loggedInUserName);
-        // Set other labels here
-    }
 
     public void setResults(String name, int totalQuestions, int correctAnswersCount, int incorrectAnswersCount, List<Integer> marks) {
         double mean = calculateMean(marks);
         int mode = calculateMode(marks);
         int median = calculateMedian(marks);
-//        double standardDeviation = calculateStandardDeviation(marks);
 
-        initialize(name, loggedInUserGender, loggedInUserNation);
-//        label_name.setText(" " + name);
+        // Initialize user details
+        setLoggedInUserName(name);
+        setLoggedInUserGender(loggedInUserGender);
+        setLoggedInUserNation(loggedInUserNation);
 
-        if(correctAnswersCount>=10){
+        // Display results
+        if (correctAnswersCount >= 10) {
             label_result.setText("Result: " + correctAnswersCount + " out of " + totalQuestions + " correct. You have passed successfully.");
-        }
-        else{
+        } else {
             label_result.setText("Result: " + correctAnswersCount + " out of " + totalQuestions + " correct. You have failed successfully.");
         }
-//        label_result.setText("Result: " + correctAnswersCount + " out of " + totalQuestions + " correct");
-        label_statistics.setText("Statistics:\nMean: " + mean + "\nMode: " + mode + "\nMedian: " + median );
-        initialize(name, loggedInUserGender, loggedInUserNation);
+        label_statistics.setText("Statistics:\nMean: " + mean + "\nMode: " + mode + "\nMedian: " + median);
     }
 
     private double calculateMean(List<Integer> marks) {
@@ -112,16 +151,81 @@ public class ResultController {
             return marks.get(middle);
         }
     }
-}
 
-//    private double calculateStandardDeviation(List<Integer> marks) {
-//        double mean = calculateMean(marks);
-//
-//        if (mean == 0.0) {
-//            return 0.0; // or handle the case in a way that makes sense for your application
-//        }
-//
-//        double sumOfSquares = marks.stream().mapToDouble(mark -> Math.pow(mark - mean, 2)).sum();
-//        return Math.sqrt(sumOfSquares / marks.size());
-//    }
-//}
+    private List<String> readNamesFromResultFile() {
+        List<String> names = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(RESULT_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 5) {
+                    String name = parts[0];
+                    names.add(name);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return names;
+    }
+
+    private List<String> loadResultsForName(String selectedName) {
+        List<String> results = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(RESULT_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 5 && parts[0].equals(selectedName)) {
+                    for (String part : parts) {
+                        results.add(part.trim());
+                    }
+                    break; // Stop reading once the result for the selected name is found
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return results;
+    }
+
+    private List<Integer> calculateMarksList(int totalQuestions, int correctAnswersCount) {
+        List<Integer> marksList = new ArrayList<>();
+        marksList.add((correctAnswersCount * 100) / totalQuestions);
+        return marksList;
+    }
+    public void displayResults(List<String> results) {
+        // Extract individual parameters from the list
+        String name = results.get(0);
+        int totalQuestions = Integer.parseInt(results.get(1));
+        int correctAnswers = Integer.parseInt(results.get(2));
+        int incorrectAnswers = Integer.parseInt(results.get(3));
+        int marks = Integer.parseInt(results.get(4));
+        String result = results.get(5);
+
+        label_userName.setText(name);
+        label_result.setText("Result: " + correctAnswers + " out of " + totalQuestions + " correct. " + result);
+
+        // Calculate statistics
+        List<Integer> marksList = calculateMarksList(totalQuestions, correctAnswers);
+        double mean = calculateMean(marksList);
+        int mode = calculateMode(marksList);
+        int median = calculateMedian(marksList);
+        double standardDeviation = calculateStandardDeviation(marksList);
+
+        // Display statistics
+        label_statistics.setText("Statistics:\nMean: " + mean + "\nMode: " + mode + "\nMedian: " + median + "\nStandard Deviation: " + standardDeviation);
+    }
+    private double calculateStandardDeviation(List<Integer> marks) {
+        double mean = calculateMean(marks);
+        double sumSquaredDiff = marks.stream().mapToDouble(mark -> Math.pow(mark - mean, 2)).sum();
+        return Math.sqrt(sumSquaredDiff / marks.size());
+    }
+
+
+
+        public void displayResultsForUser(String userName) {
+        // Load results for the selected user
+        List<String> results = loadResultsForName(userName);
+        displayResults(results);
+    }
+}

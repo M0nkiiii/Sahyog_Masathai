@@ -3,7 +3,6 @@ package com.example.assignment.controller;
 import com.opencsv.CSVReader;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,8 +55,17 @@ public class ExamController {
 
     private static final String CSV_PATH = "src/main/resources/com/example/assignment/userData.csv";
 
+    private ResultController resultController; // Reference to ResultController
+
     // Default constructor required for FXMLLoader
     public ExamController() {
+    }
+
+    public String getLoggedInUserName() {
+        return loggedInUserName;
+    }
+    public void setResultController(ResultController resultController) {
+        this.resultController = resultController;
     }
 
     public void setUserEmail(String userEmail) {
@@ -110,7 +118,7 @@ public class ExamController {
     }
 
     private void loadQuestionsFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\com\\example\\assignment\\question_list.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/com/example/assignment/question_list.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -170,7 +178,8 @@ public class ExamController {
 
         storeResults(totalQuestions, correctAnswersCount, incorrectAnswersCount);
 
-        navigateToResultScene();
+        // Automatically show the result after the exam finishes
+        navigateToResultScene(loggedInUserName);
         currentQuestionIndex = -1; // Reset the index for future attempts
     }
 
@@ -186,7 +195,7 @@ public class ExamController {
         // Format: Name,TotalQuestions,CorrectAnswers,IncorrectAnswers,Marks
         // Example: John Doe,10,7,3,70
 
-        String resultFileName = "src\\main\\resources\\com\\example\\assignment\\test_result.txt";
+        String resultFileName = "src/main/resources/com/example/assignment/test_result.txt";
 
         try (FileWriter writer = new FileWriter(resultFileName, true);
              BufferedWriter bw = new BufferedWriter(writer);
@@ -194,22 +203,20 @@ public class ExamController {
 
             // Append the result to the file
             int marks = calculateMarksList(totalQuestions, correctAnswersCount).get(0);
-//            String passFail = (marks > 10) ? "Pass" : "Fail";
-//
-//            out.println(loggedInUserName + "," + totalQuestions + "," + correctAnswersCount + "," + incorrectAnswersCount + "," + marks + "," + passFail);
-            System.out.println("Marks: " + marks);
-            if(marks >= 50)
-            {
+            if (marks >= 50) {
                 out.println(loggedInUserName + "," + totalQuestions + "," + correctAnswersCount + "," + incorrectAnswersCount + "," + marks + ",Pass");
-            }
-            else{
+            } else {
                 out.println(loggedInUserName + "," + totalQuestions + "," + correctAnswersCount + "," + incorrectAnswersCount + "," + marks + ",Fail");
             }
-
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setLoggedInUserName(String loggedInUserName) {
+        this.loggedInUserName = loggedInUserName;
+        label_name.setText(loggedInUserName);
     }
 
     private List<Integer> calculateMarksList(int totalQuestions, int correctAnswersCount) {
@@ -221,16 +228,15 @@ public class ExamController {
         return marksList;
     }
 
-    private void navigateToResultScene() {
+    private void navigateToResultScene(String selectedName) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/assignment/result.fxml"));
             Parent root = loader.load();
             ResultController resultController = loader.getController();
 
-            resultController.setLoggedInUserName(loggedInUserName);  // Set the username
-            // Pass other user details if needed
-
-            resultController.setResults(loggedInUserName, totalQuestions, correctAnswersCount, incorrectAnswersCount, calculateMarksList(totalQuestions, correctAnswersCount));
+            // Pass ResultController instance to ExamController
+            resultController.setExamController(this);  // Set the reference to ResultController
+            resultController.displayResultsForUser(selectedName);
 
             Scene resultScene = new Scene(root);
             Stage stage = (Stage) btn_answer1.getScene().getWindow();
@@ -240,10 +246,11 @@ public class ExamController {
             e.printStackTrace();
         }
     }
-
     private void updateTimerLabel() {
         int minutes = remainingTimeInSeconds / 60;
         int seconds = remainingTimeInSeconds % 60;
         label_timer.setText(String.format("%02d:%02d", minutes, seconds));
     }
 }
+
+
