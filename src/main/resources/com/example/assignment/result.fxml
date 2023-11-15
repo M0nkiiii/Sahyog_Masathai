@@ -14,7 +14,7 @@
 <!--         </font>-->
       </ComboBox>
 
-      <Label fx:id="label_userName" layoutX="300.0" layoutY="86.0" text="Name: ">
+      <Label fx:id="label_userName" layoutX="300.0" layoutY="86.0" prefHeight="20.0" prefWidth="155.0" text="Name: ">
          <font>
             <Font name="Arial Rounded MT Bold" size="16.0" />
          </font>

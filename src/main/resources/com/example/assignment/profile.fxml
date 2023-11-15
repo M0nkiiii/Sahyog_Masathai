@@ -22,47 +22,47 @@
                   <Font name="Arial Rounded MT Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="62.0" layoutY="91.0" text="Name :">
+            <Label layoutX="46.0" layoutY="91.0" text="Name :">
                <font>
                   <Font name="Arial Rounded MT Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="64.0" layoutY="129.0" prefHeight="22.0" prefWidth="65.0" text="Email :">
+            <Label layoutX="48.0" layoutY="129.0" prefHeight="22.0" prefWidth="65.0" text="Email :">
                <font>
                   <Font name="Arial Rounded MT Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="64.0" layoutY="205.0" prefHeight="22.0" prefWidth="87.0" text="Gender :">
+            <Label layoutX="47.0" layoutY="205.0" prefHeight="22.0" prefWidth="87.0" text="Gender :">
                <font>
                   <Font name="Arial Rounded MT Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="64.0" layoutY="169.0" prefHeight="22.0" prefWidth="140.0" text="Date of Birth :">
+            <Label layoutX="47.0" layoutY="169.0" prefHeight="22.0" prefWidth="140.0" text="Date of Birth :">
                <font>
                   <Font name="Arial Rounded MT Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="66.0" layoutY="238.0" prefHeight="22.0" prefWidth="140.0" text="Nationality :">
+            <Label layoutX="47.0" layoutY="238.0" prefHeight="22.0" prefWidth="140.0" text="Nationality :">
                <font>
                   <Font name="Arial Rounded MT Bold" size="19.0" />
                </font>
             </Label>
-            <Label fx:id="label_name" layoutX="204.0" layoutY="93.0" prefHeight="18.0" prefWidth="140.0" text="Label">
+            <Label fx:id="label_name" layoutX="187.0" layoutY="93.0" prefHeight="18.0" prefWidth="140.0" text="Label">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="label_email" layoutX="204.0" layoutY="131.0" prefHeight="18.0" prefWidth="140.0" text="Label">
+            <Label fx:id="label_email" layoutX="187.0" layoutY="131.0" prefHeight="18.0" prefWidth="200.0" text="Label">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="label_dob" layoutX="204.0" layoutY="171.0" prefHeight="18.0" prefWidth="140.0" text="Label">
+            <Label fx:id="label_dob" layoutX="187.0" layoutY="171.0" prefHeight="18.0" prefWidth="140.0" text="Label">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="label_gender" layoutX="204.0" layoutY="207.0" prefHeight="18.0" prefWidth="140.0" text="Label">
+            <Label fx:id="label_gender" layoutX="187.0" layoutY="207.0" prefHeight="18.0" prefWidth="140.0" text="Label">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
@@ -72,7 +72,7 @@
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
             </Button>
-            <Label fx:id="label_nation" layoutX="204.0" layoutY="240.0" prefHeight="18.0" prefWidth="140.0" text="Label">
+            <Label fx:id="label_nation" layoutX="187.0" layoutY="240.0" prefHeight="18.0" prefWidth="140.0" text="Label">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>

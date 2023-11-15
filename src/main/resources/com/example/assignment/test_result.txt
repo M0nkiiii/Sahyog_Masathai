@@ -40,3 +40,13 @@ Aryan,20,6,14,30,Fail
 123,20,8,12,40,Fail
 pop,20,13,7,65,Pass
 pop,20,11,9,55,Pass
+supper,20,36,-16,180,Pass
+supper,20,25,-5,125,Pass
+supper,20,5,15,25,Fail
+Aryan,20,21,-1,105,Pass
+Aryan,20,21,-1,105,Pass
+br,20,21,-1,105,Pass
+123,20,21,-1,105,Pass
+Aryan,20,20,0,100,Pass
+123,20,5,15,25,Fail
+Bhai,20,9,11,45,Fail
