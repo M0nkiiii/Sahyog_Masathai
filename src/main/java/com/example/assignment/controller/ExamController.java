@@ -57,7 +57,7 @@ public class ExamController {
 
     private ResultController resultController; // Reference to ResultController
 
-    // Default constructor required for FXMLLoader
+
     public ExamController() {
     }
 
@@ -76,7 +76,7 @@ public class ExamController {
 
     @FXML
     public void initialize() {
-        // Initialize the countdown timer
+
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             updateTimerLabel();
             remainingTimeInSeconds--;
@@ -88,10 +88,10 @@ public class ExamController {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-        // Load questions from file
+
         loadQuestionsFromFile();
 
-        // Load the first question
+
         loadNextQuestion();
     }
 
@@ -168,7 +168,7 @@ public class ExamController {
 
             loadNextQuestion();
         } else {
-            // Handle the case where the currentQuestionIndex is out of bounds
+
             System.out.println("Error: Index out of bounds");
         }
     }
@@ -178,22 +178,19 @@ public class ExamController {
 
         storeResults(totalQuestions, correctAnswersCount, incorrectAnswersCount);
 
-        // Automatically show the result after the exam finishes
+
         navigateToResultScene(loggedInUserName);
-        currentQuestionIndex = -1; // Reset the index for future attempts
+        currentQuestionIndex = -1;
     }
 
     private void handleTimeUp() {
         timeline.stop();
-        // Handle time-up scenario
-        // For example, navigate to the result scene or show a time-up message
+
         handleEndOfQuestions();
     }
 
     private void storeResults(int totalQuestions, int correctAnswersCount, int incorrectAnswersCount) {
-        // Implement logic to store results in "test_result.txt"
-        // Format: Name,TotalQuestions,CorrectAnswers,IncorrectAnswers,Marks
-        // Example: John Doe,10,7,3,70
+
 
         String resultFileName = "src/main/resources/com/example/assignment/test_result.txt";
 
@@ -201,7 +198,7 @@ public class ExamController {
              BufferedWriter bw = new BufferedWriter(writer);
              PrintWriter out = new PrintWriter(bw)) {
 
-            // Append the result to the file
+
             int marks = calculateMarksList(totalQuestions, correctAnswersCount).get(0);
             if (marks >= 50) {
                 out.println(loggedInUserName + "," + totalQuestions + "," + correctAnswersCount + "," + incorrectAnswersCount + "," + marks + ",Pass");
@@ -220,9 +217,7 @@ public class ExamController {
     }
 
     private List<Integer> calculateMarksList(int totalQuestions, int correctAnswersCount) {
-        // You can implement your own logic for calculating marks based on your requirements
-        // For example, you might want to assign a certain score for each correct answer
-        // and calculate the total marks accordingly.
+
         List<Integer> marksList = new ArrayList<>();
         marksList.add((correctAnswersCount * 100) / totalQuestions);
         return marksList;
@@ -234,7 +229,7 @@ public class ExamController {
             Parent root = loader.load();
             ResultController resultController = loader.getController();
 
-            // Pass ResultController instance to ExamController
+
             resultController.setExamController(this);  // Set the reference to ResultController
             resultController.displayResultsForUser(selectedName);
 

@@ -37,11 +37,11 @@ public class ResultController {
 
     @FXML
     public void initialize() {
-        // Populate ComboBox with unique names from test_result.txt
+
         List<String> names = readUniqueNamesFromResultFile();
         comboBoxNames.getItems().addAll(names);
 
-        // Automatically display the result for the logged-in user
+
         if (examController != null) {
             displayResultsForUser(examController.getLoggedInUserName());
         }
@@ -92,7 +92,7 @@ public class ResultController {
         int mode = calculateMode(marks);
         int median = calculateMedian(marks);
 
-        // Initialize user details
+
         setLoggedInUserName(name);
         setLoggedInUserGender(loggedInUserGender);
         setLoggedInUserNation(loggedInUserNation);
@@ -112,7 +112,7 @@ public class ResultController {
 
     private int calculateMode(List<Integer> marks) {
         if (marks.isEmpty()) {
-            return 0; // or handle the case in a way that makes sense for your application
+            return 0;
         }
 
         Map<Integer, Integer> frequencyMap = new HashMap<>();
@@ -138,16 +138,16 @@ public class ResultController {
         int size = marks.size();
 
         if (size == 0) {
-            return 0; // or handle the case in a way that makes sense for your application
+            return 0;
         }
 
         int middle = size / 2;
 
         if (size % 2 == 0) {
-            // If the size is even, calculate the average of the two middle elements
+
             return (marks.get(middle - 1) + marks.get(middle)) / 2;
         } else {
-            // If the size is odd, return the middle element
+
             return marks.get(middle);
         }
     }
@@ -179,7 +179,7 @@ public class ResultController {
                     for (String part : parts) {
                         results.add(part.trim());
                     }
-                    break; // Stop reading once the result for the selected name is found
+                    break;
                 }
             }
         } catch (IOException e) {
@@ -205,14 +205,14 @@ public class ResultController {
         label_userName.setText(name);
         label_result.setText("Result: " + correctAnswers + " out of " + totalQuestions + " correct. " + result);
 
-        // Calculate statistics
+
         List<Integer> marksList = calculateMarksList(totalQuestions, correctAnswers);
         double mean = calculateMean(marksList);
         int mode = calculateMode(marksList);
         int median = calculateMedian(marksList);
         double standardDeviation = calculateStandardDeviation(marksList);
 
-        // Display statistics
+
         label_statistics.setText("Statistics:\nMean: " + mean + "\nMode: " + mode + "\nMedian: " + median + "\nStandard Deviation: " + standardDeviation);
     }
     private double calculateStandardDeviation(List<Integer> marks) {
@@ -224,7 +224,7 @@ public class ResultController {
 
 
         public void displayResultsForUser(String userName) {
-        // Load results for the selected user
+
         List<String> results = loadResultsForName(userName);
         displayResults(results);
     }

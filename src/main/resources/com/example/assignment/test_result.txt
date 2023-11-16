@@ -50,3 +50,8 @@ br,20,21,-1,105,Pass
 Aryan,20,20,0,100,Pass
 123,20,5,15,25,Fail
 Bhai,20,9,11,45,Fail
+slen,20,12,8,60,Pass
+Aryan,20,10,10,50,Pass
+Aryan,20,10,10,50,Pass
+Aryan,20,13,7,65,Pass
+123,20,4,16,20,Fail

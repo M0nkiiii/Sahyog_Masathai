@@ -46,7 +46,7 @@ public class ProfileController {
 
     @FXML
     private void initialize() {
-        // You can perform additional initialization here if needed.
+
     }
 
     private void loadUserProfile() {
@@ -77,26 +77,26 @@ public class ProfileController {
     @FXML
     private void handleBackButton() {
         try {
-            // Load the FXML file for the logged-in scene
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/assignment/logged-in.fxml"));
             Parent root = loader.load();
 
-            // Create a new scene
+
             Scene loggedInScene = new Scene(root);
 
-            // Get the stage from the current button's scene
+
             Stage stage = (Stage) btn_back.getScene().getWindow();
 
-            // Set the scene on the stage
+
             stage.setScene(loggedInScene);
 
-            // Access the existing LoggedinController instance and set the email if available
+
             LoggedinController loggedinController = loader.getController();
             if (loggedinController != null) {
                 loggedinController.setLoggedInUserEmail(userEmail);
             }
 
-            // Show the stage
+
             stage.show();
         } catch (IOException e) {
             e.printStackTrace(); // Handle the exception appropriately
